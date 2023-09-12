@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@400;800;900&display=swap" rel="stylesheet">
+
+    <title>Hide Until</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <!-- Hide page -->
+    <div class="container">
+        <!--Nav bar button-->
+        <div class="header-button-container">
+            <button id="searchPage" class="header-button">search</button>
+        </div>
+
+        <h1>hide until</h1>
+        <textarea 
+            id="hiddenText"
+            placeholder="Write the text you want to hide..."
+            class="textarea"></textarea>
+
+        <div class="datetime-container">
+            <input 
+                type="time"
+                id="expirationTime" 
+                class="input input-datetime-left"
+            >
+            <input 
+                type="date"
+                id="expirationDate"
+                class="input input-datetime-right"
+            >
+        </div>
+        <div class="button-container">
+            <button id="hideButton" class="button">hide</button>
+        </div>
+        
+        <div id="confirmHideModal" class="modal">
+            <div class="modal-content">
+                <p>Successfully hidden with key:</p>
+                <div class="text-key">
+                    <p id="hiddenTextKey">f9eca760-43bf-4afc-8bae-8d7a0fab7d9c</p>
+                </div>
+                <p>Store your key somewhere safe, is the only way to access your hidden text</p>
+                <div class="button-container">
+                    <button id="confirmModalButton" class="button button-small">accept</button>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <!-- Search page -->
+    <!-- <div class="container">
+        <h3>Search your hidden text</h3>
+        <input type="text" id="textKey" placeholder="Enter the key of your text...">
+        <div class="neobrutalist-button-cointainer">
+            <button id="searchHiddenText" class="neobrutalist-button">search</button>
+        </div>
+        <p id="resultKey"></p>
+        <div id="countdown" style="display: none;">Expires in: <span id="timer">--:--:--</span></div>
+    </div> -->
+
+    <script src="script.js"></script>
+</body>
+</html>
