@@ -13,60 +13,93 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <!-- Hide page -->
+
     <div class="container">
         <!--Nav bar button-->
         <div class="header-button-container">
-            <button id="searchPage" class="header-button">search</button>
+            <button id="togglePageButton" class="header-button">search</button>
         </div>
 
         <h1>hide until</h1>
-        <textarea 
-            id="hiddenText"
-            placeholder="Write the text you want to hide..."
-            class="textarea"></textarea>
+        <!-- Hide page -->
+        <div id="hideContainer">
+            <textarea 
+                id="hiddenText"
+                placeholder="Write the text you want to hide..."
+                class="textarea"></textarea>
 
-        <div class="datetime-container">
-            <input 
-                type="time"
-                id="expirationTime" 
-                class="input input-datetime-left"
-            >
-            <input 
-                type="date"
-                id="expirationDate"
-                class="input input-datetime-right"
-            >
-        </div>
-        <div class="button-container">
-            <button id="hideButton" class="button">hide</button>
-        </div>
-        
-        <div id="confirmHideModal" class="modal">
-            <div class="modal-content">
-                <p>Successfully hidden with key:</p>
-                <div class="text-key">
-                    <p id="hiddenTextKey">f9eca760-43bf-4afc-8bae-8d7a0fab7d9c</p>
+            <div class="datetime-container">
+                <input 
+                    type="time"
+                    id="expirationTime" 
+                    class="input input-datetime-left"
+                >
+                <input 
+                    type="date"
+                    id="expirationDate"
+                    class="input input-datetime-right"
+                >
+            </div>
+            <div class="button-container">
+                <button id="hideButton" class="button">hide</button>
+            </div>
+            
+            <div id="confirmHideModal" class="modal">
+                <div class="modal-content">
+                    <p>Successfully hidden with key:</p>
+
+                    <div class="text-key">
+                        <span id="hiddenTextKey"></span>
+                    </div>
+                    <p>Store your key somewhere safe, is the only way to access your hidden text</p>
+                    <div class="button-container">
+                        <button id="confirmModalButton" class="button button-small">accept</button>
+                    </div>
                 </div>
-                <p>Store your key somewhere safe, is the only way to access your hidden text</p>
+            </div>        
+        </div>
+
+        <!-- Search page -->
+        <div id="searchContainer">
+            <div class="search-input-container">
+                <input type="text" id="textKey" class="input-small" placeholder="Search with key...">
                 <div class="button-container">
-                    <button id="confirmModalButton" class="button button-small">accept</button>
+                    <button id="searchHiddenText" class="button button-small">search</button>
                 </div>
             </div>
-        </div>        
-    </div>
-
-    <!-- Search page -->
-    <!-- <div class="container">
-        <h3>Search your hidden text</h3>
-        <input type="text" id="textKey" placeholder="Enter the key of your text...">
-        <div class="neobrutalist-button-cointainer">
-            <button id="searchHiddenText" class="neobrutalist-button">search</button>
+            
+            <h2 id="searchTextTitle">text revealed in</h2>
+            <div id="countdownContainer">
+                <div class="countdown-element-container">
+                    <div class="countdown-element">
+                        <span id="countdownDays">-</span>
+                    </div>
+                    days
+                </div>
+                <div class="countdown-element-container">
+                    <div class="countdown-element">
+                        <span id="countdownHours">-</span>
+                    </div>
+                    hours
+                </div>
+                <div class="countdown-element-container">
+                    <div class="countdown-element">
+                        <span id="countdownMinutes">-</span>
+                    </div>
+                    minutes
+                </div>
+                <div class="countdown-element-container">
+                    <div class="countdown-element">
+                        <span id="countdownSeconds">-</span>
+                    </div>
+                    seconds
+                </div>
+            </div>
+            <div id="textRevealedContainer">
+                <p id="textRevealed"></p>
+            </div>
         </div>
-        <p id="resultKey"></p>
-        <div id="countdown" style="display: none;">Expires in: <span id="timer">--:--:--</span></div>
-    </div> -->
-
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
