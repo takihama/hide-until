@@ -4,7 +4,7 @@
   "description": "Hide your data until a given time",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.js' --write",
     "format": "npx prettier --write ."
