@@ -29,7 +29,7 @@ expirationDate.defaultValue = new Date().toISOString().split('T')[0];
 searchContainer.style.display = 'none';
 textRevealedContainer.style.display = 'none';
 
-let textUuid = ''
+let textUuid = '';
 
 togglePageButton.addEventListener('click', async () => {
   hideContainer.style.display =
@@ -40,10 +40,9 @@ togglePageButton.addEventListener('click', async () => {
     togglePageButton.textContent === 'hide' ? 'search' : 'hide';
 });
 
-
 hiddenTextKey.addEventListener('click', () => {
   navigator.clipboard.writeText(hiddenTextKey.textContent);
-})
+});
 
 hideButton.addEventListener('click', async () => {
   const text = hiddenText.value;
@@ -89,8 +88,8 @@ searchHiddenText.addEventListener('click', async () => {
 
   if (response.ok) {
     const { expirationTime, isHidden, text } = await response.json();
-    
-    if (expirationTime && isHidden) {
+
+    if (isHidden) {
       textRevealedContainer.style.display = 'none';
       searchTextTitle.textContent = 'text revealed in';
       updateCountdownTimer(expirationTime);
@@ -108,6 +107,7 @@ async function updateCountdownTimer(expirationDate) {
   const timerInterval = setInterval(async () => {
     const timeRemaining =
       new Date(expirationDate).getTime() - new Date().getTime(); // in milliseconds
+
     if (timeRemaining <= 0) {
       clearInterval(timerInterval);
       countdownDays.textContent = '-';
@@ -128,7 +128,7 @@ async function updateCountdownTimer(expirationDate) {
         const data = await response.json();
         textRevealed.innerHTML = data.text;
       }
-      searchTextTitle.value = 'hidden text';
+      searchTextTitle.textContent = 'hidden text';
     } else {
       const days = Math.floor(
         (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60 * 24)
@@ -141,7 +141,7 @@ async function updateCountdownTimer(expirationDate) {
       );
       const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-      // Update coundwon elements text
+      // Update countdown elements text
       countdownDays.textContent = days;
       countdownHours.textContent = hours;
       countdownMinutes.textContent = minutes;
