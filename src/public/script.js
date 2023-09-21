@@ -53,7 +53,7 @@ hideButton.addEventListener('click', async () => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ text, expirationTime: time })
+    body: JSON.stringify({ text, expirationTime: new Date(time).toUTCString() })
   });
 
   if (response.ok) {

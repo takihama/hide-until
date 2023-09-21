@@ -11,11 +11,10 @@ const textValidation = body('text')
   .withMessage('Text must be shorter than 255 characters');
 const expirationTimeValidation = body('expirationTime')
   .notEmpty()
-  .isISO8601()
-  .withMessage('Invalid date format');
+  .withMessage('Date field is required');
 
 router.use('/api', (req, _, next) => {
-  console.log(`Time: ${new Date().toString()}`);
+  console.log(`Time: ${new Date().toUTCString()}`);
   console.log(`Params: ${req.params}`);
   next();
 });

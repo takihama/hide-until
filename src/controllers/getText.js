@@ -12,10 +12,12 @@ const getText = async (req, res) => {
     return res.status(404).send('Hidden text not found');
   }
 
-  if (hiddenText.expirationTime > new Date().toUTCString()) {
+  if (
+    new Date(hiddenText.expirationTime).toUTCString() > new Date().toUTCString()
+  ) {
     return res.json({
       uuid: hiddenText.uuid,
-      expirationTime: hiddenText.expirationTime,
+      expirationTime: new Date(hiddenText.expirationTime).toUTCString(),
       isHidden: true
     });
   }

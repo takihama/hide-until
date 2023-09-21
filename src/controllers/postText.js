@@ -9,7 +9,7 @@ const postText = async (req, res) => {
   
   const hiddenText = await createHiddenText({
     text: req.body.text,
-    expirationTime: new Date(req.body.expirationTime).toUTCString()
+    expirationTime: req.body.expirationTime
   });
 
   if (!hiddenText) {
