@@ -13,7 +13,7 @@ const getText = async (req, res) => {
   }
 
   if (
-    new Date(hiddenText.expirationTime).toUTCString() > new Date().toUTCString()
+    new Date(hiddenText.expirationTime).getTime() > new Date().getTime()
   ) {
     return res.json({
       uuid: hiddenText.uuid,
