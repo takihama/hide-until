@@ -15,7 +15,8 @@ const expirationTimeValidation = body('expirationTime')
 
 router.use('/api', (req, _, next) => {
   console.log(`Time: ${new Date().toUTCString()}`);
-  console.log(`Params: ${req.params}`);
+  console.log("Params:");
+  console.log(req.body);
   next();
 });
   
